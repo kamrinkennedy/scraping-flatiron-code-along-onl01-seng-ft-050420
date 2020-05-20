@@ -28,8 +28,8 @@ class Scraper
   def make_courses 
     self.get_courses.each do |post|
       course = Course.new
-      course.title = doc.css(".post").first.css("h2").text
-      course.schedule = doc.css(".post").first.css(".date").text
+      course.title = post.css(".post").first.css("h2").text
+      course.schedule = post.css(".post").first.css(".date").text
       course.description = doc.css(".post").first.css("p").text
     end
   end
